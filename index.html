@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light" data-font-size="normal">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>楊梅高中校史大事記 | 德厚流廣 灼爚梅岡</title>
+    <meta name="description" content="楊梅高中校史大事記，整合大事記1與大事記2完整史料，記錄自1948年創校以來的光輝歲月與校園記憶。">
+    <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="device-auto layout-vertical">
+
+    <!-- 裝置模擬視圖外層包裝容器 -->
+    <div class="app-viewport-wrapper" id="viewportWrapper">
+
+        <!-- 頂端導航條 -->
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="#hero" class="brand-wrapper">
+                    <img src="assets/images/logo.jpg" alt="楊梅高中校徽" class="brand-logo-img">
+                    <div class="brand-titles">
+                        <span class="brand-title" data-i18n="siteTitle">楊梅高中校史大事記</span>
+                        <span class="brand-subtitle" data-i18n="siteSubtitle">德厚流廣 ‧ 灼爚梅岡 ‧ 迎曦御風 ‧ 薪火相傳</span>
+                    </div>
+                </a>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="#timeline-section" data-i18n="navTimeline">編年大事記</a></li>
+                        <li class="nav-item"><a href="#stories-section" data-i18n="navStories">梅岡拾穗</a></li>
+                        <li class="nav-item"><a href="#principals-section" data-i18n="navPrincipals">歷任校長</a></li>
+                        <li class="nav-item"><a href="#buildings-section" data-i18n="navBuildings">名樓勝景</a></li>
+                        <li class="nav-item"><a href="#gallery-section">梅岡影華</a></li>
+                        <li class="nav-item"><a href="#emblem-section" data-i18n="navEmblem">校徽意涵</a></li>
+                        <li class="nav-item">
+                            <button id="navSettingsBtn" class="settings-btn-nav" data-i18n="navSettings">
+                                ⚙️ 顯示與操作設定
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 首頁英雄視覺看板 (Hero) -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-emblem-glow">
+                    <div class="hero-emblem-ring"></div>
+                    <img src="assets/images/logo.jpg" alt="楊梅高中校徽" class="hero-emblem-img">
+                </div>
+                <div>
+                    <span class="hero-pill-badge" data-i18n="badgeSince">創校於 1948 年 (民國37年)</span>
+                </div>
+                <h1 class="hero-title" data-i18n="siteTitle">楊梅高中校史大事記</h1>
+                <p class="hero-subtitle" data-i18n="siteSubtitle">
+                    走過七十載篳路藍縷，自高埔山崗俯瞰天地，以誠毅之志化育萬千梅岡英才。
+                </p>
+                <div class="hero-motto-tag" data-i18n="mottoLabel">
+                    校訓：愛自己 ‧ 愛學校 ‧ 愛國家
+                </div>
+
+                <!-- 歷史里程碑統計資訊條 -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">34+</div>
+                        <div class="stat-label" data-i18n="statEvents">件歷史重大紀事</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">70+</div>
+                        <div class="stat-label" data-i18n="statYears">載作育英才歲月</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label" data-i18n="statPrincipals">任校長深耕擘劃</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label" data-i18n="statBuildings">座人文指標建築</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 檢索與年代時間軸主區塊 -->
+        <section class="container" id="timeline-section">
+
+            <!-- 檢索與過濾控制面板 -->
+            <div class="search-control-panel">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon-svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="historySearchInput" class="search-input-field" placeholder="輸入關鍵字搜尋大事記（如：日新樓、校歌、金手獎、校長、周蓮香…）" data-i18n="searchPlaceholder">
+                    <button id="searchClearBtn" class="search-clear-btn" title="清除搜尋">✕</button>
+                </div>
+
+                <!-- 篩選標籤組 -->
+                <div class="filters-row">
+                    <!-- 年代時期標籤 -->
+                    <div class="filter-pills-group">
+                        <button class="filter-pill active" data-filter-type="era" data-filter-val="all" data-i18n="filterEraAll">全部年代時期</button>
+                        <button class="filter-pill" data-filter-type="era" data-filter-val="草創奠基期 (1948-1967)">1948~1967 初創奠基</button>
+                        <button class="filter-pill" data-filter-type="era" data-filter-val="省立梅高期 (1968-1982)">1968~1982 省立拓荒</button>
+                        <button class="filter-pill" data-filter-type="era" data-filter-val="多元綜合拓展期 (1983-1999)">1983~1999 多元拓展</button>
+                        <button class="filter-pill" data-filter-type="era" data-filter-val="國立梅高期 (2000-2017)">2000~2017 國立卓越</button>
+                        <button class="filter-pill" data-filter-type="era" data-filter-val="市立梅高新紀元 (2018+)">2018+ 市立新紀元</button>
+                    </div>
+
+                    <!-- 類別過濾標籤 -->
+                    <div class="filter-pills-group">
+                        <button class="filter-pill active" data-filter-type="category" data-filter-val="all" data-i18n="filterCatAll">全部分類</button>
+                        <button class="filter-pill" data-filter-type="category" data-filter-val="institution" data-i18n="filterCatInstitution">學校改制</button>
+                        <button class="filter-pill" data-filter-type="category" data-filter-val="principal" data-i18n="filterCatPrincipal">校長傳承</button>
+                        <button class="filter-pill" data-filter-type="category" data-filter-val="campus" data-i18n="filterCatCampus">建築設施</button>
+                        <button class="filter-pill" data-filter-type="category" data-filter-val="academic" data-i18n="filterCatAcademic">學程特色</button>
+                        <button class="filter-pill" data-filter-type="category" data-filter-val="achievement" data-i18n="filterCatAchievement">榮譽獲獎</button>
+                    </div>
+                </div>
+
+                <!-- 搜尋狀態條與重設按鈕 -->
+                <div class="search-status-bar">
+                    <span id="filterCountDisplay">已篩選出 34 件歷史紀事</span>
+                    <button id="resetFiltersBtn" class="filter-pill" style="border-style: dashed;" data-i18n="resetBtn">重設條件</button>
+                </div>
+            </div>
+
+            <!-- 年份快速跳轉直達條 -->
+            <div class="quick-year-nav" id="quickYearsNav">
+                <!-- 由 JavaScript 自動填充里程碑年份 -->
+            </div>
+
+            <!-- 大事記時間軸串流容器 (支援直式/橫式動態切換) -->
+            <div class="timeline-stream" id="timelineStream">
+                <!-- 由 JavaScript 自動動態渲染 -->
+            </div>
+
+        </section>
+
+        <!-- 專題一：梅岡拾穗 (大事記1珍貴文史散文) -->
+        <section class="section-wrapper" id="stories-section">
+            <div class="container">
+                <div class="section-title-box">
+                    <span class="section-tag">Campus Memories</span>
+                    <h2 class="section-main-title">梅岡拾穗 ‧ 經典校史散文回憶</h2>
+                    <p class="section-desc">
+                        輯錄自朱珮琪、梁明慧、張志銘老師之史料採錄，以溫潤文字重現老梅高人的青春足跡與真摯情懷。
+                    </p>
+                </div>
+
+                <div class="stories-grid" id="storiesGrid">
+                    <!-- 由 JavaScript 自動渲染 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 專題二：名樓勝景與校園五絕 (大事記1與2整合) -->
+        <section class="section-wrapper" id="buildings-section">
+            <div class="container">
+                <div class="section-title-box">
+                    <span class="section-tag">Landmarks & Architecture</span>
+                    <h2 class="section-main-title">名樓勝景 ‧ 典雅人文意涵</h2>
+                    <p class="section-desc">
+                        西側、東側、教學、行政大樓於民國96年票選定名為「御風、迎曦、悅知、蘊慧」，結合新代日新樓與紀念先賢啟明樓，光輝燦爛。
+                    </p>
+                </div>
+
+                <div class="buildings-grid" id="buildingsGrid">
+                    <!-- 由 JavaScript 自動渲染 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 專題三：歷任校長與創校先賢 (大事記1與2整合) -->
+        <section class="section-wrapper" id="principals-section">
+            <div class="container">
+                <div class="section-title-box">
+                    <span class="section-tag">Leadership & Heritage</span>
+                    <h2 class="section-main-title">歷任校長 ‧ 薪火相傳</h2>
+                    <p class="section-desc">
+                        自初創奠基張芳杰校長至現任鄒岳廷校長，歷任掌校者秉持熱忱奉獻，引領楊梅高中昂首前進。
+                    </p>
+                </div>
+
+                <div class="principals-grid" id="principalsGrid">
+                    <!-- 由 JavaScript 自動渲染 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 專題四：梅岡影華 ‧ 珍貴歷史影像圖庫 (大事記2精彩活動照片) -->
+        <section class="section-wrapper" id="gallery-section">
+            <div class="container">
+                <div class="section-title-box">
+                    <span class="section-tag">Historic Photo Archive</span>
+                    <h2 class="section-main-title">梅岡影華 ‧ 珍貴歷史影像</h2>
+                    <p class="section-desc">
+                        重溫梅高一幕幕關鍵時刻：日新樓動土與剪綵、世界機關王世界冠軍、工科金手獎、教學卓越獎與改隸市立揭牌。
+                    </p>
+                </div>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- 由 JavaScript 自動渲染 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 專題五：校徽造形與精神意涵 (色彩與設計由來) -->
+        <section class="section-wrapper" id="emblem-section">
+            <div class="container">
+                <div class="section-title-box">
+                    <span class="section-tag">School Emblem & Motto</span>
+                    <h2 class="section-main-title" data-i18n="emblemTitle">校徽造形與精神意涵</h2>
+                    <p class="section-desc" data-i18n="emblemDesc">
+                        楊梅高中校徽以倒三角形為基底，結合梅花精神與巍峨精神堡壘，彰顯「愛自己、愛學校、愛國家」之校訓。
+                    </p>
+                </div>
+
+                <div class="emblem-showcase-card">
+                    <div style="text-align: center;">
+                        <img src="assets/images/logo.jpg" alt="楊梅高中校徽" class="emblem-large-img">
+                        <div style="margin-top: 14px; font-weight: 800; color: var(--primary);">
+                            楊梅高中象徵徽章
+                        </div>
+                    </div>
+
+                    <div class="emblem-details-list">
+                        <div class="emblem-feature-item">
+                            <div class="emblem-icon-badge badge-purple">紫</div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--primary);" data-i18n="emblemFeature1Title">梅高紫基底</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.92rem;" data-i18n="emblemFeature1Desc">
+                                    象徵沉穩厚重、典雅高潔的學術風範與開闊包容的胸襟。本網站主色系即取自此高雅之梅高紫。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="emblem-feature-item">
+                            <div class="emblem-icon-badge badge-red">梅</div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--accent-red);" data-i18n="emblemFeature2Title">赤紅五瓣梅花</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.92rem;" data-i18n="emblemFeature2Desc">
+                                    象徵梅花凌霜傲雪之不屈意志，五瓣梅開，寓意學子德、智、體、群、美五育均衡發展，如寒梅吐蕊、芬芳致遠。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="emblem-feature-item">
+                            <div class="emblem-icon-badge badge-white">塔</div>
+                            <div>
+                                <h4 style="font-size: 1.1rem; font-weight: 800; color: var(--primary-dark);" data-i18n="emblemFeature3Title">直挺精神堡壘</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.92rem;" data-i18n="emblemFeature3Desc">
+                                    自梅心拔地而起的白色光芒尖塔，象徵校園地標「梅岡精神堡壘」直聳青雲、昂首立世，砥礪學子志存高遠。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 頁尾 Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <img src="assets/images/logo.jpg" alt="楊梅高中校徽" class="footer-logo">
+                <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 6px;" data-i18n="siteTitle">
+                    楊梅高中校史大事記
+                </h3>
+                <p data-i18n="footerCopyright">
+                    桃園市立楊梅高級中等學校 校史文獻彙整 ‧ 德厚流廣 灼爚梅岡
+                </p>
+                <p class="footer-source-note" data-i18n="footerSource">
+                    資料來源：楊梅高中大事記 (朱珮琪、梁明慧、張志銘老師採錄) 與《梅高七十 迎曦御風 楊梅高中七十週年專刊》
+                </p>
+            </div>
+        </footer>
+
+    </div><!-- /app-viewport-wrapper -->
+
+    <!-- ==========================================================================
+         「⚙️ 顯示與操作設定」彈跳視窗 (需求10：包含完整七大切換功能)
+         ========================================================================== -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <img src="assets/images/logo.jpg" alt="校徽" style="width: 28px; height: 28px; object-fit: contain;">
+                    <div>
+                        <h3 class="modal-title" data-i18n="settingsTitle">⚙️ 顯示與操作設定</h3>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);" data-i18n="settingsSubtitle">個人化介面呈現與互動體驗偏好</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="window.closeSettings()" title="關閉設定">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- (1) 全螢幕：開啟／關閉 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>🖥️ (1) 全螢幕模式</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingFullscreenDesc">切換沉浸式全螢幕檢視模式</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn" data-setting="fullscreen" data-value="true" data-i18n="settingFullscreenOpen">開啟</button>
+                        <button class="setting-toggle-btn active" data-setting="fullscreen" data-value="false" data-i18n="settingFullscreenClose">關閉</button>
+                    </div>
+                </div>
+
+                <!-- (2) 音效：開啟／關閉 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>🔊 (2) 互動音效</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingAudioDesc">點擊按鈕、搜尋與切換時之悅耳合成音效</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn active" data-setting="audio" data-value="true" data-i18n="settingAudioOn">開啟</button>
+                        <button class="setting-toggle-btn" data-setting="audio" data-value="false" data-i18n="settingAudioOff">關閉</button>
+                    </div>
+                </div>
+
+                <!-- (3) 裝置：自動／手機／平板／電腦 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>📱 (3) 裝置模擬視圖</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingDeviceDesc">切換自動自適應或鎖定裝置寬度</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn active" data-setting="device" data-value="auto" data-i18n="deviceAuto">自動</button>
+                        <button class="setting-toggle-btn" data-setting="device" data-value="mobile" data-i18n="deviceMobile">手機</button>
+                        <button class="setting-toggle-btn" data-setting="device" data-value="tablet" data-i18n="deviceTablet">平板</button>
+                        <button class="setting-toggle-btn" data-setting="device" data-value="desktop" data-i18n="deviceDesktop">電腦</button>
+                    </div>
+                </div>
+
+                <!-- (4) 版面：自動／直式／橫式 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>📐 (4) 版面編排方式</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingLayoutDesc">切換大事記時間軸之縱橫流向</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn" data-setting="layout" data-value="auto" data-i18n="layoutAuto">自動</button>
+                        <button class="setting-toggle-btn active" data-setting="layout" data-value="vertical" data-i18n="layoutVertical">直式</button>
+                        <button class="setting-toggle-btn" data-setting="layout" data-value="horizontal" data-i18n="layoutHorizontal">橫式</button>
+                    </div>
+                </div>
+
+                <!-- (5) 語言：繁體中文／英文 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>🌐 (5) 界面語言</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingLanguageDesc">切換繁體中文或英文介面</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn active" data-setting="language" data-value="zh-TW" data-i18n="langZh">繁體中文</button>
+                        <button class="setting-toggle-btn" data-setting="language" data-value="en" data-i18n="langEn">英文</button>
+                    </div>
+                </div>
+
+                <!-- (6) 字體：縮小／標準／放大 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>🔤 (6) 字體大小</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingFontDesc">調整全站字級以利舒適閱讀</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn" data-setting="font" data-value="small" data-i18n="fontSmall">縮小</button>
+                        <button class="setting-toggle-btn active" data-setting="font" data-value="normal" data-i18n="fontNormal">標準</button>
+                        <button class="setting-toggle-btn" data-setting="font" data-value="large" data-i18n="fontLarge">放大</button>
+                    </div>
+                </div>
+
+                <!-- (7) 色系：跟隨系統／亮色／暗色 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>🎨 (7) 色系風格</span>
+                        </div>
+                        <div class="setting-item-desc" data-i18n="settingThemeDesc">切換校徽亮色或優雅暗色深邃模式</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn" data-setting="theme" data-value="system" data-i18n="themeSystem">跟隨系統</button>
+                        <button class="setting-toggle-btn active" data-setting="theme" data-value="light" data-i18n="themeLight">亮色</button>
+                        <button class="setting-toggle-btn" data-setting="theme" data-value="dark" data-i18n="themeDark">暗色</button>
+                    </div>
+                </div>
+
+                <!-- 額外豐富特效：梅花飄落動態 -->
+                <div class="setting-item-row">
+                    <div class="setting-item-info">
+                        <div class="setting-item-title">
+                            <span>🌸 梅花飄落動態特效</span>
+                        </div>
+                        <div class="setting-item-desc">象徵梅岡精神的粉紅梅花輕舞飛揚粒子效果</div>
+                    </div>
+                    <div class="setting-control-group">
+                        <button class="setting-toggle-btn active" data-setting="blossom" data-value="true" data-i18n="petalsOn">開啟</button>
+                        <button class="setting-toggle-btn" data-setting="blossom" data-value="false" data-i18n="petalsOff">暫停</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 梅岡拾穗故事彈窗 (Story Modal) -->
+    <div class="modal-overlay" id="storyModal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title" id="storyModalTitle">故事標題</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);" id="storyModalSubtitle">副標題</p>
+                </div>
+                <button class="modal-close-btn" onclick="window.closeStoryModal()" title="關閉">✕</button>
+            </div>
+            <div class="modal-body">
+                <p id="storyModalContent" style="font-size: 1.02rem; line-height: 1.85; color: var(--text-secondary); white-space: pre-line;"></p>
+                <div id="storyModalTags" style="display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 歷史照片高解析燈箱 (Lightbox Modal) -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="window.closeLightbox()">
+        <img class="lightbox-img-full" id="lightboxImg" src="" alt="放大照片" onclick="event.stopPropagation()">
+        <div class="lightbox-caption-text" id="lightboxCaption" onclick="event.stopPropagation()"></div>
+        <button style="position: absolute; top: 24px; right: 28px; background: rgba(255,255,255,0.2); border: none; color: white; font-size: 2rem; width: 44px; height: 44px; border-radius: 50%; cursor: pointer;" onclick="window.closeLightbox()">✕</button>
+    </div>
+
+    <!-- 浮動快捷操作按鈕組 -->
+    <div class="floating-actions">
+        <button class="fab-btn" id="toggleSoundBtn" title="音效開關">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        </button>
+        <button class="fab-btn" id="openSettingsBtn" title="顯示與操作設定">
+            ⚙️
+        </button>
+        <button class="fab-btn" id="scrollTopBtn" title="返回頂端" style="opacity: 0; pointer-events: none;">
+            ▲
+        </button>
+    </div>
+
+    <!-- 核心腳本載入 -->
+    <script src="assets/data.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/petals.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
